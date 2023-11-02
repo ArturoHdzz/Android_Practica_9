@@ -22,6 +22,10 @@ public class PermisoAdapter extends RecyclerView.Adapter<PermisoAdapter.ViewHold
         Lista_permisos = lista_permisos;
     }
 
+    public interface PermissionRequester {
+        void requestPermission(String permission);
+    }
+
     @NonNull
     @Override
     public PermisoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,6 +38,17 @@ public class PermisoAdapter extends RecyclerView.Adapter<PermisoAdapter.ViewHold
     public void onBindViewHolder(@NonNull PermisoAdapter.ViewHolder holder, int position) {
         Permiso p= Lista_permisos.get(position);
         holder.setData(p);
+
+        holder.swPermiso.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            p.setEstado(isChecked);
+            if (isChecked) {
+                if (holder.itemView.getContext() instanceof PermissionRequester) {
+                    ((PermissionRequester) holder.itemView.getContext()).requestPermission(p.getPermisos());
+                }
+            } else {
+                p.setEstado(false);
+            }
+        });
     }
 
     @Override

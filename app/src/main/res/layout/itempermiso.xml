@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="140dp"
-    android:background="#009688">
+    android:background="#5FF6F6">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,7 +10,7 @@
         android:id="@+id/txtPermiso"
         android:textSize="35dp"
         android:layout_marginTop="30dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:text="El Gran Gatsby"
         android:layout_marginStart="20dp" />
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtDesc"
         android:textSize="20dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:text="F. Scott Fitzgerald."
         android:layout_below="@+id/txtPermiso"
         android:layout_marginStart="20dp"
